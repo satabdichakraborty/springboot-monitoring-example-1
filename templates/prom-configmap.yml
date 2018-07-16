@@ -15,6 +15,6 @@ data:
     - job_name: 'demoapplication'
       static_configs:
          - targets: ['restservice:8080']         
-    - job_name: 'demoapplication'
+    - job_name: 'cadvisor'
       static_configs:
          - targets: ['cadvisor:8080']
