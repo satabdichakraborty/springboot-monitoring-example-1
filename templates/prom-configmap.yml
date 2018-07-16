@@ -14,4 +14,4 @@ data:
          - targets: ['localhost:9090']         
     - job_name: 'demoapplication'
       static_configs:
-         - targets: ['http://restservice-demoapplication.osetest.delta.com/metrics']
+         - targets: ['localhost:8080']
