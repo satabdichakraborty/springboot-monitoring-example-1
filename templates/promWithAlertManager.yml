@@ -23,7 +23,7 @@ spec:
           - '-config.file=/etc/prometheus/prometheus.yml'
         ports:
         - name: web
-          containerPort: 3030
+          containerPort: 9090
         volumeMounts:
         - name: config-volume-prometheus
           mountPath: /etc/prometheus
