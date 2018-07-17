@@ -5,15 +5,8 @@ data:
      smtp_smarthost: 'smtp.delta.com:25'
      smtp_from: 'PrometheusAlerts@delta.com'
    route:
-     # default route if none match
      receiver: all
-     # The labels by which incoming alerts are grouped together. For example,
-     # multiple alerts coming in for cluster=A and alertname=LatencyHigh would
-     # be batched into a single group.
-     # TODO:
      group_by: []
-     # All the above attributes are inherited by all child routes and can
-     # overwritten on each.
    receivers:
    - name: alert-buffer-wh
      webhook_configs:
