@@ -15,13 +15,11 @@ spec:
         app: prometheus-monitoring
     spec:
       containers:
-      # Prometheus server
       - name: prometheus
         image: prom/prometheus
         args:
           - '-storage.local.retention=72h'
           - '-storage.local.path=/home'
-          - '-storage.local.memory-chunks=500000'
           - '-config.file=/etc/prometheus/prometheus.yml'
           - '-alertmanager.url=http://localhost:9093'
           - '-web.external-url=http://prometheus.example.com'
@@ -42,8 +40,6 @@ spec:
           requests:
             cpu: 1000m
             memory: 1000Mi
-
-      #Alert manager
       - name: alertmanager
         image: prom/alertmanager
         args:
