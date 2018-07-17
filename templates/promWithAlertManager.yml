@@ -21,11 +21,9 @@ spec:
           - '-storage.local.retention=72h'
           - '-storage.local.path=/home'
           - '-config.file=/etc/prometheus/prometheus.yml'
-          - '-alertmanager.url=http://localhost:9093'
-          - '-web.external-url=http://prometheus.example.com'
         ports:
         - name: web
-          containerPort: 9090
+          containerPort: 3030
         volumeMounts:
         - name: config-volume-prometheus
           mountPath: /etc/prometheus
