@@ -1,0 +1,35 @@
+apiVersion: v1
+data:
+ alertmanager.yml: |
+   global:
+     smtp_smarthost: 'in-v3.mailjet.com:25'
+     smtp_from: 'xxxx@gmail.com'
+     smtp_auth_username: 'xxxxx'
+     smtp_auth_password: 'xxxxx'
+   # The root route on which each incoming alert enters.
+   route:
+     # default route if none match
+     receiver: all
+     # The labels by which incoming alerts are grouped together. For example,
+     # multiple alerts coming in for cluster=A and alertname=LatencyHigh would
+     # be batched into a single group.
+     # TODO:
+     group_by: []
+     # All the above attributes are inherited by all child routes and can
+     # overwritten on each.
+   receivers:
+   - name: alert-buffer-wh
+     webhook_configs:
+     - url: http://localhost:9099/topics/alerts
+   - name: mail
+     email_configs:
+     - to: "info@containers.ninja"
+   - name: all
+     email_configs:
+     - to: "info@containers.ninja"
+     webhook_configs:
+     - url: http://localhost:9099/topics/alerts
+kind: ConfigMap
+metadata:
+ creationTimestamp: null
+ name: prometheus-alerts
