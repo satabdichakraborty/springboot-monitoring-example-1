@@ -4,5 +4,11 @@ metadata:
   name: prometheus-alert-rules
 data:
   fortAlert.rules: |-
-    ALERT service_down
-  IF up == 0
+   groups:
+   - name: example
+   rules:
+
+   # Alert for any instance that is unreachable for >5 minutes.
+   - alert: InstanceDown
+    expr: up == 0
+    for: 5m
