@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: prometheus-alert-rules
 data:
-  alert.rules: |-
+  fortAlert.rules: |-
     ALERT HighCPU
       IF ((sum(node_cpu{mode=~"user|nice|system|irq|softirq|steal|idle|iowait"}) by (instance, job)) - ( sum(node_cpu{mode=~"idle|iowait"}) by (instance,job) )   )   /  (sum(node_cpu{mode=~"user|nice|system|irq|softirq|steal|idle|iowait"}) by (instance, job)) * 100 > 95
       FOR 1m
