@@ -23,7 +23,7 @@ spec:
           - '-storage.local.retention=72h'
           - '-storage.local.path=/home'
           - '-storage.local.memory-chunks=500000'
-          - '-config.file=/etc/prometheus/prometheus.yml'
+          #- '-config.file=/etc/prometheus/prometheus.yml'
           - '-alertmanager.url=http://localhost:9093'
           - '-web.external-url=http://prometheus.example.com'
         ports:
@@ -47,8 +47,8 @@ spec:
       #Alert manager
       - name: alertmanager
         image: quay.io/prometheus/alertmanager:v0.5.0
-        args:
-          - -config.file=/etc/prometheus/alertmanager.yml
+       # args:
+       #   - -config.file=/etc/prometheus/alertmanager.yml
         volumeMounts:
         - name: config-volume-alertmanager
           mountPath: /etc/prometheus
