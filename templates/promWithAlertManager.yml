@@ -64,5 +64,3 @@ spec:
       - name: config-volume-alert-rules
         configMap:
           name: prometheus-alert-rules
-      - name: prometheus-data
-        emptyDir: {}
