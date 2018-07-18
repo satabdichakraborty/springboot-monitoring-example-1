@@ -14,13 +14,18 @@ spec:
       labels:
         app: prometheus-monitoring
     spec:
+
       containers:
+      # Prometheus server
       - name: prometheus
-        image: prom/prometheus
+        image: prom/prometheus:v1.3.1
         args:
           - '-storage.local.retention=72h'
           - '-storage.local.path=/home'
+          - '-storage.local.memory-chunks=500000'
           - '-config.file=/etc/prometheus/prometheus.yml'
+          - '-alertmanager.url=http://localhost:9093'
+          - '-web.external-url=http://prometheus.example.com'
         ports:
         - name: web
           containerPort: 9090
@@ -33,18 +38,22 @@ spec:
           mountPath: /home
         resources:
           limits:
-            cpu: 2000m
-            memory: 2000Mi
+            cpu: 12000m
+            memory: 10000Mi
           requests:
-            cpu: 1000m
-            memory: 1000Mi
+            cpu: 4000m
+            memory: 4000Mi
+
+      #Alert manager
       - name: alertmanager
-        image: prom/alertmanager
+        image: quay.io/prometheus/alertmanager:v0.5.0
         args:
           - -config.file=/etc/prometheus/alertmanager.yml
         volumeMounts:
         - name: config-volume-alertmanager
           mountPath: /etc/prometheus
+
+      # Volumes and config maps
       volumes:
       - name: config-volume-prometheus
         configMap:
