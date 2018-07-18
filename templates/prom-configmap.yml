@@ -23,9 +23,9 @@ data:
     - job_name: 'testapp'
       static_configs:
          - targets: ['testapp:8080']
-  alerting:
-    alertmanagers:
-    - scheme: http
-      static_configs:
-      - targets:
-        - "alert-manager-ip:9093"
+    alerting:
+      alertmanagers:
+      - scheme: http
+        static_configs:
+        - targets:
+          - "alert-manager-ip:9093"
