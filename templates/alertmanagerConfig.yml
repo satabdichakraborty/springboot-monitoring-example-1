@@ -10,10 +10,8 @@ data:
      group_wait: 30s
      group_interval: 10s
      repeat_interval: 10s
+     continue: true
    receivers:
-   - name: alert-buffer-wh
-     webhook_configs:
-     - url: http://localhost:9099/topics/alerts
    - name: mail
      email_configs:
      - to: "satabdi.das@delta.com"
@@ -21,7 +19,7 @@ data:
      email_configs:
      - to: "satabdi.das@delta.com"
      webhook_configs:
-     - url: http://localhost:9099/topics/alerts
+     - url: http://alertmanager:9093/api/v1/alerts
 kind: ConfigMap
 metadata:
  creationTimestamp: null
