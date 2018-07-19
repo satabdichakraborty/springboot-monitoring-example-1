@@ -1,4 +1,7 @@
 apiVersion: v1
+kind: ConfigMap
+metadata:
+ name: prometheus-alerts
 data:
  alertmanager.yml: |
    global:
@@ -20,7 +23,3 @@ data:
      - to: "satabdi.das@delta.com"
      webhook_configs:
      - url: http://alertmanager:9093/api/v1/alerts
-kind: ConfigMap
-metadata:
- creationTimestamp: null
- name: prometheus-alerts
