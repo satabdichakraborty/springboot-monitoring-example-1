@@ -1,4 +1,3 @@
-apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: prometheus-monitoring
@@ -24,7 +23,7 @@ spec:
           -- '-storage.local.memory-chunks=10000'
           -- '-config.file=/etc/prometheus/prometheus.yml'
           -- '-alertmanager.url=http://localhost:9093'
-          -- '-web.external-url=https://evila570.delta.com/prometheus'
+          #-- '-web.external-url=https://evila570.delta.com/prometheus'
           -- '-web.route-prefix=/prometheus'
         ports:
         - name: web
