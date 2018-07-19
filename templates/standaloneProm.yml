@@ -20,7 +20,7 @@ spec:
         image: prom/prometheus
         args:
           - '-storage.local.retention=72h'
-          - '-storage.local.path=/home'
+          #- '-storage.local.path=/home'
           - '-storage.local.memory-chunks=50000'
           - '-config.file=/etc/prometheus/prometheus.yml'
           - '-alertmanager.url=http://localhost:9093'
