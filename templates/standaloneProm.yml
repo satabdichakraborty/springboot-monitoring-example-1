@@ -19,13 +19,13 @@ spec:
       - name: prometheus
         image: prom/prometheus
         args:
-          - '-storage.local.retention=72h'
-          #- '-storage.local.path=/home'
-          #- '-storage.local.memory-chunks=50000'
-          - '-config.file=/etc/prometheus/prometheus.yml'
-          - '-alertmanager.url=http://localhost:9093'
-          - '-web.external-url=https://evila570.delta.com/prometheus'
-          - '-web.route-prefix=/prometheus'
+          -- '-storage.local.retention=24h'
+          -- '-storage.local.path=/prometheus'
+          -- '-storage.local.memory-chunks=10000'
+          -- '-config.file=/etc/prometheus/prometheus.yml'
+          -- '-alertmanager.url=http://localhost:9093'
+          -- '-web.external-url=https://evila570.delta.com/prometheus'
+          -- '-web.route-prefix=/prometheus'
         ports:
         - name: web
           containerPort: 9090
