@@ -28,4 +28,4 @@ data:
       - scheme: http
         static_configs:
         - targets:
-          - "alert-manager-ip:9093"
+          - "alertmanager:9093"
