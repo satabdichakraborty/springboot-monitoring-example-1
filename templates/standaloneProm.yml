@@ -17,13 +17,9 @@ spec:
       # Prometheus server
       - name: prometheus
         image: prom/prometheus
-        args:
-          -- '-storage.local.retention=24h'
-          -- '-storage.local.path=/prometheus'
-          -- '-storage.local.memory-chunks=10000'
-          -- '-config.file=/etc/prometheus/prometheus.yml'
+        args:          
           -- '-alertmanager.url=http://localhost:9093'
-          #-- '-web.external-url=https://evila570.delta.com/prometheus'
+          -- '-web.external-url=https://evila570.delta.com/prometheus'
           -- '-web.route-prefix=/prometheus'
         ports:
         - name: web
@@ -32,6 +28,3 @@ spec:
           limits:
             cpu: 2000m
             memory: 2000Mi
-          #requests:
-            #cpu: 1000m
-            #memory: 1000Mi
