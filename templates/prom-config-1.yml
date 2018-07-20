@@ -14,10 +14,9 @@ data:
     - job_name: 'prometheus'
       static_configs:
          - targets: ['localhost:9090']         
-    - job_name: 'demoapplication'
-      static_configs:      
-      metrics_path: /healthcheck
-         - targets: ['reverse-proxy:8080']         
+    - job_name: 'fort'
+      static_configs: 
+         - targets: ['reverse-proxy:8080/healthcheck']         
     - job_name: 'cadvisor'
       static_configs:
          - targets: ['cadvisor:8080']
