@@ -13,9 +13,10 @@ data:
     scrape_configs:    
     - job_name: 'prometheus'
       static_configs:
-         - targets: ['prometheus:9090']         
+         - targets: ['localhost:9090']         
     - job_name: 'demoapplication'
-      static_configs:
+      static_configs:      
+      metrics_path: /healthcheck
          - targets: ['reverse-proxy:8080']         
     - job_name: 'cadvisor'
       static_configs:
